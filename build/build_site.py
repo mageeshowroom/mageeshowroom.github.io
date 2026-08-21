@@ -294,21 +294,26 @@ SHARED_JS = '''<script>
 
 ANIM_JS = '''<script>
 (function() {
-  document.documentElement.classList.add('anim');
+  var cards = document.querySelectorAll('.card');
+  function revealAll() { cards.forEach(function(c) { c.classList.add('vis'); }); }
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduce && 'IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function(es) {
-      es.forEach(function(e) {
-        if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
-      });
-    }, { rootMargin: '0px 0px -8% 0px' });
-    document.querySelectorAll('.card').forEach(function(c, i) {
+  if (reduce || !('IntersectionObserver' in window)) { revealAll(); return; }
+  document.documentElement.classList.add('anim');
+  var io = new IntersectionObserver(function(es) {
+    es.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  cards.forEach(function(c, i) {
+    // Anything already on screen is shown at once, so the page is never blank.
+    if (c.getBoundingClientRect().top < window.innerHeight * 1.2) {
+      c.classList.add('vis');
+    } else {
       c.style.transitionDelay = (i % 3) * 70 + 'ms';
       io.observe(c);
-    });
-  } else {
-    document.querySelectorAll('.card').forEach(function(c) { c.classList.add('vis'); });
-  }
+    }
+  });
+  setTimeout(revealAll, 4000);
 })();
 </script>'''
 
