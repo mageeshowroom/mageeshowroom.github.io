@@ -26,16 +26,25 @@ Open `index.html` in a browser. That is the whole site.
 open index.html
 ```
 
+To change an item, edit the `ITEMS` list in `build/build_site.py` and rebuild:
+
+```bash
+python3 build/build_site.py
+```
+
 ## Status
 
-Live. Next: a separate valuation pass on the paintings.
+Complete and live. Next: a separate valuation pass on the paintings.
 
 ## Project structure
 
 ```
 magee-showroom/
-├── index.html        # the entire site, photos included
-└── assets/readme/    # README hero image
+├── index.html          # the entire site, photos included
+├── build/
+│   ├── build_site.py   # rebuilds index.html from the item list
+│   └── photos/         # web-sized photos, one per catalogue image
+└── assets/readme/      # README hero image
 ```
 
 All photographs are family property. All rights reserved; no reuse without permission.
