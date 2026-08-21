@@ -1,10 +1,10 @@
-# The Magee Showroom
+# Private Family Catalogue
 
-A one-page catalogue of the Magee family collection, built to show auction houses and family what is coming out of storage.
+A one-page catalogue of a private collection coming out of storage, built for auction houses to review.
 
 [Website](https://ianduncanmagee.com) · [LinkedIn](https://www.linkedin.com/in/ianduncanmagee) · [GitHub](https://github.com/AladdinYan) · [Substack](https://substack.com/@worldaccordingtoian)
 
-![The Magee Showroom](assets/readme/hero.png)
+![Private Family Catalogue](assets/readme/hero.png)
 
 ## What it does
 
@@ -12,7 +12,7 @@ A one-page catalogue of the Magee family collection, built to show auction house
 - A Gallery tab shows all 128 photographs in a filterable masonry wall
 - Click any photo for a full-size viewer with keyboard navigation and a jump back to the item
 - Light and dark view with a one-click toggle
-- Contacts tab with an enquiry form (email hookup pending)
+- Contacts tab with a direct email button for enquiries
 
 ## Built with
 
@@ -28,7 +28,7 @@ open index.html
 
 ## Status
 
-Live. Next: connect the enquiry form to email, then a separate valuation pass on the paintings.
+Live. Next: a separate valuation pass on the paintings.
 
 ## Project structure
 
